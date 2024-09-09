@@ -50,7 +50,9 @@ Files, scripts, and their functions'interconnections are mapped below.
 <br>  
 
 
+**Activities**
 
+Collects ecoinvent activities under variable names that will be called by other scripts.
 
 **util_functions**
 
