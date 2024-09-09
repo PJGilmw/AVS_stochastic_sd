@@ -7,7 +7,7 @@ This repository contains the code used to reproduce the results of the manuscrip
 This is not a generalized platform/package to apply the procedure to any case, but the scripts specific to the procedure and not to the case (agrivoltaics) can be further adapted with additional work.
 
 **Cite this repository:**
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7759974.svg)](https://doi.org/10.5281/zenodo.7759974)
+
 
 
 
