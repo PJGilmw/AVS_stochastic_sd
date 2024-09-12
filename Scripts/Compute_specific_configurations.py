@@ -608,6 +608,8 @@ colnames_switch=['wheat_switch', 'soy_switch','alfalfa_switch']
 
 uncert=False
 
+num_cpus =5
+
 size=16 # Just to be sure to have at least the 3 crops
 list_tablesmelt = []
 
@@ -652,9 +654,7 @@ for key_name in Scenarios_to_compute:
     """Create the modified datapackage"""
     
     
-    
-    
-    dp_modif,values_for_datapackages,data_objs,fu = create_modif_datapackages(AVS_elec_main,
+    list_arrays_for_datapackages,values_for_datapackages,list_chunk_sizes = create_modif_arrays_para(AVS_elec_main,
                               meth1,
                               "foregroundAVS",
                               'ecoinvent-3.10-consequential',
@@ -662,12 +662,15 @@ for key_name in Scenarios_to_compute:
                               "additional_biosphere_multi_categories",
                               list_totalindices,
                               dict_funct,
-                              values_for_datapackages)
+                              values_for_datapackages,
+                              num_cpus)
     
     
-
+    
     
     """Compute the LCAs"""
+    
+    # List of FUs
     
     list_fu=[[AVS_elec_main.id,"AVS_elec_main"],
              [PV_ref.id,"PV_ref"],
@@ -675,18 +678,20 @@ for key_name in Scenarios_to_compute:
              [wheat_fr_ref.id,"wheat_fr_ref"],
              [soy_ch_ref.id,"soy_ch_ref"],
              [alfalfa_ch_ref.id,"alfalfa_ch_ref"],
-             [elec_marginal_fr_copy.id,"elec_marginal_fr_copy"]] # here add AVS_crop_main
+             [elec_marginal_fr_copy.id,"elec_marginal_fr_copy"]] 
     
-    list_tables=compute_stochastic_lcas(data_objs,
-                                        fu,
-                                dp_static_fix,
-                                dp_modif,
+    
+    
+    list_tables = compute_stochastic_lcas_para(
+                                list_arrays_for_datapackages,
                                 list_fu,
                                 AVS_elec_main,
-                                list_modif_meth,  # Here list_modif_meth
-                                size,
-                                uncert)
-    
+                                list_modif_meth,
+                                uncert,
+                                list_chunk_sizes,
+                                indices_array_fix,
+                                data_array_fix)
+
 
 
 
