@@ -9,8 +9,7 @@ This is not a generalized platform/package to apply the procedure to any case, b
 **Cite this repository:**
 
 
-
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13121149.svg)](https://doi.org/10.5281/zenodo.13861243)
 
  
 ### Overview of folders and files:
@@ -18,7 +17,7 @@ This is not a generalized platform/package to apply the procedure to any case, b
 
 **Environment**
 
-+ **env_bw_windows.yml** File needed to create the virtual environment on WINDOWS.
++ **environment.yml** File needed to create the virtual environment on WINDOWS.
 
 
 
@@ -197,7 +196,7 @@ Try to install the environment from the environment file and, in case of issues,
 
 + From the python interface or from command, execute the whole script to prepare the Brightway2 project (```python Setup_bw_project.py```) .
 
-+ From the python interface or from command, execute the script **Creation_Database_1.py** and then **Creation_Database_2.py** to setup the foreground database (```python Creation_Database_1.py.py```) .
++ From the python interface or from command, execute the script **Creation_Database_1.py** and then **Creation_Database_2.py** to setup the foreground database (```python Creation_Database_1.py```) .
 
 
 5. **Compute** 
