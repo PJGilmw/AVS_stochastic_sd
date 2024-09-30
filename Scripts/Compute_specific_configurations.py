@@ -621,7 +621,7 @@ for key_name in Scenarios_to_compute:
     dictionnaries = Scenarios_to_compute[key_name]
 
     
-    names_param_total, sample_dataframe= sampling_func_montecarlo2(dictionnaries,
+    names_param_total, sample_dataframe= sampling_func_lhs(dictionnaries,
                                  size)
     
     list_sample.append(sample_dataframe)
