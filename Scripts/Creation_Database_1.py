@@ -37,10 +37,17 @@ Biosphere = bd.Database('ecoinvent-3.10-biosphere')
 
           
 # Delete databases before building them again 
-        
-del bd.databases["additional_biosphere_multi_categories"]
-del bd.databases["foregroundAVS"]
-del bd.databases["additional_biosphere"]
+if "additional_biosphere_multi_categories" in list(bd.databases):
+    del bd.databases["additional_biosphere_multi_categories"]
+
+if "foregroundAVS" in list(bd.databases):
+    del bd.databases["foregroundAVS"]
+
+  
+if "additional_biosphere" in list(bd.databases):
+    del bd.databases["additional_biosphere"]
+      
+
 
 
 
