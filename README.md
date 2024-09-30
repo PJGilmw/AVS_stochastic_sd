@@ -19,7 +19,7 @@ This is not a generalized platform/package to apply the procedure to any case, b
 **Environment**
 
 + **env_bw_windows.yml** File needed to create the virtual environment on WINDOWS.
-+ **env_bw_ubuntu_full.yml** File needed to create the virtual environment on UBUNTU.
+
 
 
 **PRIM_process**
@@ -166,33 +166,26 @@ conda env create --file env_bw_windows.yml
 + Activate the newly created environment:
 
 ```
-conda activate env_bw_windows
+conda activate AVS_stochastic_sd_env
 ```
+
++ Install the ecoinvent_interface package from conda:
+```
+conda install ecoinvent_interface
+```
+
+
 
 + Install the ray package from pip:
 ```
 pip install ray
 ```
 
-**For Ubuntu:**
+**For Ubuntu and MACOS:**
 
 
-```
-conda env create --file env_bw_ubuntu.yml
-```
 
-+ Activate the newly created environment:
-
-```
-conda activate env_bw_ubuntu
-```
-
-+ Install the ray package from pip:
-```
-pip install ray
-```
-
-For MACOS, you should try to install the environment from the ubuntu file and, in case of issues, complete the environment by installing the problematic packages manually. 
+Try to install the environment from the environment file and, in case of issues, complete the environment by installing the problematic packages manually. 
 
 
 3. **Replace the "prim.py" script in the ema_workbench package**
