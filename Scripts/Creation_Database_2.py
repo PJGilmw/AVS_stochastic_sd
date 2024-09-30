@@ -7,6 +7,14 @@ Created on Wed Mar 20 11:58:27 2024
 Script that finishes setting up the foreground database.
 To be executed as a whole.
 
+
+
+
+
+Possible improvements:
+Make copies of the wafer production so that its parameterization only 
+affets the foreground activity. In this version, the modification of 
+the wafer production is happening in the background but it has almost no effect on the different FUs.
 """
 
 
@@ -40,9 +48,6 @@ Ecoinvent = bd.Database('ecoinvent-3.10-consequential')
 biosphere = bd.Database('ecoinvent-3.10-biosphere')
 
 
-
-for act in foregroundAVS:
-    print(act,act["code"],act.id)
 
 
 # We start by making a copy of 'photovoltaic slanted-roof installation, 3kWp, single-Si, panel, mounted, on roof'
@@ -135,6 +140,16 @@ for exc in list(photovoltaicmono_installation_perm2panel_AVS.exchanges()):
 
 #rescaled all electricity inputs to 1 square meter
 
+
+for exc in list(photovoltaicslantedroofinstallation3kWpsingleSipanelmountedonroof.exchanges()):
+        # exc_former = exc["amount"]
+        # exc["amount"] = exc_former/sum(list_inputs_electric_instal_weights)
+        # exc.save()
+        print(exc)
+        print(exc["name"])
+        if "photovoltaic panel, single-Si wafer" in exc["name"]:
+            original_surface_panel = exc["amount"]
+
 for exc in list(photovoltaicmono_installation_perm2panel_AVS.exchanges()):
         # exc_former = exc["amount"]
         # exc["amount"] = exc_former/sum(list_inputs_electric_instal_weights)
@@ -148,7 +163,7 @@ for exc in list(photovoltaicmono_installation_perm2panel_AVS.exchanges()):
               print(input_name)  
               exc_former = exc["amount"]
 
-              exc["amount"] = exc_former/22.07187
+              exc["amount"] = exc_former/original_surface_panel #22.07187 in ecoinent 3.9
               exc.save()
               
 
@@ -165,15 +180,11 @@ for exc in list(photovoltaicmono_installation_perm2panel_PV.exchanges()):
                 
               exc_former = exc["amount"]
 
-              exc["amount"] = exc_former/22.07187
+              exc["amount"] = exc_former/original_surface_panel #22.07187 in ecoinent 3.9
               exc.save()
               
-for exc in list(photovoltaicmono_installation_perm2panel_PV.exchanges()):
-    print(exc)
 
-              
-for exc in list(photovoltaicmono_installation_perm2panel_AVS.exchanges()):
-    print(exc)
+
         
 # Now we will create modifed version of the inverter, the electic installation and the panel
 
@@ -505,8 +516,6 @@ photovoltaicpanelsingle_Si_prod_row =Ecoinvent.get('9e0b81cf2d44559f13849f03e7b3
 waferprod=[(act,act["code"],act.id) for act in Ecoinvent if 'photovoltaic cell production, single-Si wafer'in act['name'] ]
 waferprod
 
-for exc in list(Ecoinvent.get("69e0ae62d7d13ca6270e9634a0c40374").exchanges()):
-    print(exc)
 
 
 
@@ -749,20 +758,3 @@ elec_marginal_fr = Ecoinvent.get("a3b594fa27de840e85cb577a3d63d11a")
 
 
 
-
-for exc in list(photovoltaicmono_installation_perm2panel_AVS.exchanges()):
-        # exc_former = exc["amount"]
-        # exc["amount"] = exc_former/sum(list_inputs_electric_instal_weights)
-        # exc.save()
-        if exc["type"]=="technosphere" or exc["type"]=="production":
-            if exc["input"][0] =="ecoinvent-3.10-consequential":
-                input_= Ecoinvent.get(exc["input"][1])
-            else:    
-                input_= foregroundAVS.get(exc["input"][1])
-            input_name = input_["name"]
-            input_loc = input_["location"]
-            
-            print(input_name,input_loc, exc["amount"] ,exc["unit"],input_["code"],input_.id)
-
-
-panel=Ecoinvent.get("095784514d394dfeecf399a047d006c8")  
