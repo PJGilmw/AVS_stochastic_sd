@@ -506,7 +506,7 @@ After your modification, recreate the foreground database by executing ***Creati
 <br>
 <br>
 <br>
-&#128308; **C) Changing the electricity market** 
+&#128308;**C) Changing the electricity market** 
 
 The co-produced electricity when crop is the main product currently substitutes the french marginal mix.
 
