@@ -430,6 +430,11 @@ These activity variables will then be used to locate where the dedicated functio
 <img src="./oriyiels.svg">
 
 
++ lines 688 to 702, in the function "f_outputAVS_crop_main", add the initial yield of your crop (init_yield_yourcrop) and the switch parameter for your crop (yourcrop_switch) to the inputs of the function. Modify the equation for the new value by adding "+(init_yield_yourcrop*yourcrop_switch)" between the parentheses.
+
+<img src="./foutputavscropmain.svg">
+
+
 + line 961. Create a crop switch function for your new crop activity. Copy the format of the original switch functions line 961-990. Write the function just after them.
 
 <img src="./switchnewcrop.svg">
