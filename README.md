@@ -2,7 +2,7 @@
 
 ## Overview of the repository
 
-This repository contains the code used to reproduce the results of the manuscript: *Jouannais.P, Marchand-Lasserre.M, Douziech.M, Pérez-López.P, When is Agrivoltaics Environmentally Beneficial? A Consequential LCA and Scenario Discovery Approach (under review)* 
+This repository contains the code used to reproduce the results of the manuscript: *Jouannais.P, Marchand-Lasserre.M, Douziech.M, Pérez-López.P, When is Agrivoltaism Environmentally Beneficial? A Consequential LCA and Scenario Discovery Approach (under review)* 
 
 This is not a generalized platform/package to apply the procedure to any case, but the scripts specific to the procedure and not to the case (agrivoltaics) can be further adapted with additional work.
 
