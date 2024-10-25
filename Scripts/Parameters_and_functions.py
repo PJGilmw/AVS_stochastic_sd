@@ -1675,8 +1675,7 @@ dict_funct = { "f1": {"func":vectorize_function(fconcrete_PV_mounting), # return
                                                  (water_air.id, wheat_fr_AVS_crop_main.id),
                                                 (water_ground.id, wheat_fr_AVS_crop_main.id),
                                                 (water_surface.id, wheat_fr_AVS_crop_main.id),
-                                                 (water_market_irrigation,wheat_fr_AVS_crop_main.id),
-]},
+                                                 (water_market_irrigation,wheat_fr_AVS_crop_main.id)]},
               
                 "f47": {"func":vectorize_function(f_carbon_soil_accumulation_ref),
                                      "indices":[(c_soil_accu.id, wheat_fr_ref.id),
