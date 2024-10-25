@@ -20,6 +20,11 @@ This is not a generalized platform/package to apply the procedure to any case, b
 + **environment.yml** File needed to create the virtual environment on WINDOWS.
 
 
+**Product_system**
+
++ **Detailed product system.svg** Detailed Product system as coded.
+
+
 
 **PRIM_process**
 
